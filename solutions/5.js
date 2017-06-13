@@ -47,7 +47,31 @@ const solution2 = (arr) => {
   }
   return arr;
 };
+
+// Betty Chow
+// sort numbers or strings in an array in ascending order
+const solution1 = (arr) => {
+    let newArr = [];
+    while( arr.length > 0) {
+      let smallestNum = arr[0];
+      for(let i=0; i < arr.length; i++) {
+        if (arr[i] < smallestNum) {
+          smallestNum = arr[i];
+        }
+      }
+      let x = arr.indexOf(smallestNum);
+      newArr.push(arr.splice(x , 1));
+    }
+    const finalArr = [].concat.apply([], newArr);
+    return finalArr;
+}
+
 module.exports = {
   solution,
+  solution1,
   solution2,
 };
+
+
+
+
